@@ -1,0 +1,60 @@
+{% extends "job_board/_base.html" %}
+{% load humanize %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center mb-8">Job Categories</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6" >
+      {% for categories in categories %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="{{ categories.images.url}}" alt="{{ categories.name }}" class="h-48 w-full object-cover">
+          <div class="p-4">
+            <h2 class="text-xl font-semibold mb-2 shadow-md"> {{ categories.categoryName }}</h2>
+            <a href= "{% url "index" categories.pk %}" class="text-blue-500 hover:text-blue-700">
+              View Jobs
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  {% comment %} <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center mb-8">Job Categories</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {% for posting in job_postings %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="{{ category.image_url }}" alt="{{ category.name }}" class="h-48 w-full object-cover">
+          <div class="p-4">
+            <h2 class="text-xl font-semibold mb-2">{{ category.name }}</h2>
+            <a href="{% url 'jobs_by_category' category.id %}" class="text-blue-500 hover:text-blue-700">
+              View Jobs
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div> {% endcomment %}
+  
+  
+
+{% endblock content %}
+{% comment %} {% block content %}
+    <div class="flex justify-center w-10/12 mx-auto flext-wrap gap-6">
+        <div class="grid grid-cols-4 gap-4">
+            {% for categories in categories %}
+            <a class ="w-1/4 text-center bg-gray-200 h-32 flex items-center justify-center text-black" href = "{% url "index" posting.pk %}">
+                <div class ="border round px-8 py-10 bg-gray-50 hover:bg-grey-100 hover:cursor-pointer">
+                    <p class ="text-2xl pb-2 text-lg font-bold">{{posting.title}}</p>
+                    <hr class="py-2">
+                    <p class="front-semibold pb-2 text-sm"> company : {{category.name}}</p>
+                    <p class="text-xl pb-2 text-sm">salary : {{posting.salary |intcomma}}</p>
+                    <p class="underline underline-offet-2 text-blue-500 hover:text-blue-400 text-sm">view detail</p>
+                </div>
+            </a>
+        {% endfor %}
+        </div>
+
+    </div>
+{% endblock content %} {% endcomment %}
