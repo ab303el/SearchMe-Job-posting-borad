@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-n6@oqwv9ip^gpyt%)fj5s+#d$i8$vl5fy&93q*a3$_tvqk-i60
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://searchme-job-posting-borad.onrender.com","www.searchmejob.com"]
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'searchme-job-posting-borad.onrender.com',
+    "https://searchme-job-posting-borad.onrender.com",
+    "www.searchmejob.com"
+]
 
 
 # Application definition
