@@ -1,0 +1,16 @@
+{% extends "job_board/_base.html" %}
+{%load humanize%}
+{% block content %}
+    <div class="bg-white rounded-lg shadow-md p-4">
+        <p class="pb-6"><a href = "{% url "main" %}" class="border border-grey-400 rounded px-4 py-2 hover:bg-gray-200">Go Back</a></p>
+        <h1 class="text-3xl font-semibold  pb-4 underline underline-offet-8 shadow-md">{{job_postings.title}}</h1>
+        <p class="pb-2 text-xl">Company:{{job_postings.company}}</p>
+        <p class="pb-2 font-semibold">Salary:{{job_postings.salary | intcomma}}</p>
+        <p class="pb-2 font-bold">Description:{{job_postings.description}}</p>
+        <p class="pb-6"><a href = "{% url "main" %}" class="border border-grey-400 rounded px-4 py-2 hover:bg-gray-200">Apply</a></p>
+        <p>Status: {% if job_postings.is_active %}Active{% else %}Inactive{% endif %}</p>
+
+    </div>
+
+
+{% endblock content %}
